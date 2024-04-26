@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        DIRECTORY_PATH = "/Users/tahermurtuzamamajiwala/Desktop/jenkinsfile"
+        DIRECTORY_PATH = "/Users/ammardaruger/Desktop/jenkinsfile"
         TESTING_ENVIRONMENT = "testing_environment"
         PRODUCTION_ENVIRONMENT = "Ammar Daruger"
     }
