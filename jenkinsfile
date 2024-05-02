@@ -1,53 +1,36 @@
 pipeline {
     agent any
-    
-    environment {
-        DIRECTORY_PATH = "/Users/ammardaruger/Desktop/jenkinsfile"
-        TESTING_ENVIRONMENT = "testing_environment"
-        PRODUCTION_ENVIRONMENT = "Ammar Daruger"
     }
     
     stages {
         stage('Build') {
             steps {
-                script {
-                    echo "Fetching the source code from the directory path specified by the environment variable: ${env.DIRECTORY_PATH}"
-                    echo "Compiling the code and generating any necessary artifacts"
+                echo "Building..."
+            }
+            post{
+                always{
+                    mail to: "ammardaruger@gmail.com",
+                    subject: "Build successful email",
+                    body: "body log attached"
+                    
                 }
             }
         }
         
         stage('Test') {
             steps {
-                echo "Running unit tests"
-                echo "Running integration tests"
-            }
-        }
-        
-        stage('Code Quality Check') {
-            steps {
-                echo "Checking the quality of the code"
+                echo "Testing..."
             }
         }
         
         stage('Deploy') {
             steps {
-                echo "Deploying the application to a testing environment specified by the environment variable: ${env.TESTING_ENVIRONMENT}"
+                echo "Deploying"
             }
         }
-        
-        stage('Approval') {
+        stage('Complete') {
             steps {
-                script {
-                    echo "Waiting for manual approval..."
-                    sleep(10)
-                }
-            }
-        }
-        
-        stage('Deploy to Production') {
-            steps {
-                echo "Deploying the code to the production environment ${env.PRODUCTION_ENVIRONMENT}"
+                echo "Completed... "
             }
         }
     }
