@@ -10,7 +10,6 @@ pipeline {
                     mail to: "ammardaruger@gmail.com",
                     subject: "Build successful email",
                     body: "body log attached"
-                    
                 }
             }
         }
@@ -31,5 +30,4 @@ pipeline {
                 echo "Completed... "
             }
         }
-    
 }
